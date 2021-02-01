@@ -15,15 +15,12 @@ cantidad_moneda = c(1500,500,3600,1200,13200)
 cantidad_moneda
 
 # Exprese el valor de cada tipo de moneda en euros por medio de un vector columna.
-valor_euros = c(105.73,9.44,4.42,8.40,743.69)
-valorEnEuros_por_moneda = t(cantidad_moneda/valor_euros)
-valorEnEuros_por_moneda
+valor_euros = c(0.0095,0.11,0.23,0.12,0.0013)
+t(valor_euros)
 
-# Utilice el producto punto para calcular cuántos dólares valía el dinero extranjero del turista.
-valor_dolares = c(0.011,0.13,0.27,0.14,0.0016)
-valor_total_dolares = sum(cantidad_moneda*valor_dolares)
-valor_total_dolares
-
+# Utilice el producto punto para calcular cuántos euros valía el dinero extranjero del turista.
+total_dinero_euros = sum(cantidad_moneda*valor_euros)
+total_dinero_euros
 
 ```
 
@@ -114,4 +111,24 @@ a_2
 involutiva_a = a_2 %*% a_2
 involutiva_a
 
+```
+
+### 7. Mostrar que el poducto PQ es una matriz de probabilidad.
+
+```{r}
+
+p = matrix(c((1/3),(1/3),(1/3), (1/4),(1/2),(1/4),0,0,1), ncol = 3, byrow = T)
+q = matrix(c((1/6),(1/6),(2/3),(1/8),(3/8),(5/8),(1/5),(3/5),(1/5)), ncol = 3, byrow = T)
+
+result = p %*% q
+result
+
+fila_1 = result[1,1] + result[1,2] + result[1,3]
+fila_1
+
+fila_2 = result[2,1] + result[2,2] + result[2,3]
+fila_2
+
+fila_3 = result[3,1] + result[3,2] + result[3,3]
+fila_3
 ```
